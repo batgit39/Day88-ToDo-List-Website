@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Task</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Delete Task</h1>
+        <form action="/delete/{{ task_id }}" method="post">
+            <div class="form-group">
+                <label for="task">Task:</label>
+                <input type="text" class="form-control" id="task" name="task" value="{{ task }}" readonly>
+            </div>
+            <button type="submit" class="btn btn-danger">Delete Task</button>
+        </form>
+        <br>
+        <a href="/">Go back to home</a>
+    </div>
+</body>
+</html>
+

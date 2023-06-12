@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Todo List</h1>
+        <form action="/add" method="post">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter task" name="task" required>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Add Task</button>
+                </div>
+            </div>
+        </form>
+        <ul class="list-group">
+            {% for index in range(tasks|length) %}
+            <li class="list-group-item">
+                {{ tasks[index] }}
+                <form action="/delete/{{ index }}" method="post" class="float-right">
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
